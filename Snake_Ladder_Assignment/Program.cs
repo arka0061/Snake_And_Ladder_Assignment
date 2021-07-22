@@ -6,6 +6,8 @@ namespace Snake_And_Ladder_Assignment
     {
         public static int player_Position = 0;
         public static int dice = 0;
+        public static int check=0;
+        public int board = 0;
         public static  void Main(string[] args)
         {
             Program obj = new Program();
@@ -22,7 +24,28 @@ namespace Snake_And_Ladder_Assignment
                 roll_Dice = Console.ReadLine();
                 Random random = new Random();
                 dice = random.Next(1, 7);
-            Console.WriteLine(dice);
+                check = random.Next(0, 3);
+                switch (check)
+                {
+                    case 0:
+                    Console.WriteLine("You got a No Play!");
+                    break;
+
+                    case 1:
+                    Console.WriteLine("You got a Ladder!");
+                    board = board + dice;
+                    break;
+
+                    case 3:
+                    Console.WriteLine("You got a Snake!");
+                    board = board = board - dice;
+                    break;
+
+                    default:
+                    Console.WriteLine("Error");
+                    break;
+
+            }
 
 
         }
