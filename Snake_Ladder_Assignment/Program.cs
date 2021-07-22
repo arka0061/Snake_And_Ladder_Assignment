@@ -7,7 +7,7 @@ namespace Snake_And_Ladder_Assignment
         public static int player_Position = 0;
         public static int dice = 0;
         public static int check=0;
-        public int board = 0;
+        public int board = 90;
         public static  void Main(string[] args)
         {
             Program obj = new Program();
@@ -20,7 +20,7 @@ namespace Snake_And_Ladder_Assignment
         {
            String roll_Dice = "";
 
-            while (board <= 100)
+            while (board <= 120)
             {
                 Console.WriteLine("Press Enter to roll the dice");
                 roll_Dice = Console.ReadLine();
@@ -52,6 +52,16 @@ namespace Snake_And_Ladder_Assignment
                         Console.WriteLine("Error");
                         break;
 
+                }
+                if(board>100)
+                {
+                    board = board - dice;
+                    Console.WriteLine("Your position is above 100: Resetting to previous position : "+board);
+                   
+                }
+                if(board==100)
+                {
+                    break;
                 }
             }
 
