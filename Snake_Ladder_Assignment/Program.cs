@@ -7,7 +7,8 @@ namespace Snake_And_Ladder_Assignment
         public static int player_Position = 0;
         public static int dice = 0;
         public static int check=0;
-        public int board = 90;
+        public int board = 0;
+        int counter = 0;
         public static  void Main(string[] args)
         {
             Program obj = new Program();
@@ -32,20 +33,21 @@ namespace Snake_And_Ladder_Assignment
                     case 0:
                         Console.WriteLine("You got a No Play!");
                         Console.WriteLine("Your position is : " + board);
+                        counter++;
                         break;
 
                     case 1:
                         board = board + dice;
                         Console.WriteLine("You got a Ladder!");
                         Console.WriteLine("Your position is : " + board);
-                       
+                        counter++;
                         break;
 
                     case 2:
                         board = board - dice;
                         Console.WriteLine("You got a Snake!");
                         Console.WriteLine("Your position is : " + board);
-                        
+                        counter++;
                         break;
 
                     default:
@@ -64,6 +66,7 @@ namespace Snake_And_Ladder_Assignment
                     break;
                 }
             }
+            Console.WriteLine("Congratulatuons!You have won the game,Your positon is :" + board + " " + "Number of times dice rolled : " + counter);
 
 
         }
