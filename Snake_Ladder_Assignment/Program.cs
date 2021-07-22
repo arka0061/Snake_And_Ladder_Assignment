@@ -19,7 +19,9 @@ namespace Snake_And_Ladder_Assignment
         public void game_start()
         {
            String roll_Dice = "";
-           
+
+            while (board <= 100)
+            {
                 Console.WriteLine("Press Enter to roll the dice");
                 roll_Dice = Console.ReadLine();
                 Random random = new Random();
@@ -28,23 +30,29 @@ namespace Snake_And_Ladder_Assignment
                 switch (check)
                 {
                     case 0:
-                    Console.WriteLine("You got a No Play!");
-                    break;
+                        Console.WriteLine("You got a No Play!");
+                        Console.WriteLine("Your position is : " + board);
+                        break;
 
                     case 1:
-                    Console.WriteLine("You got a Ladder!");
-                    board = board + dice;
-                    break;
+                        board = board + dice;
+                        Console.WriteLine("You got a Ladder!");
+                        Console.WriteLine("Your position is : " + board);
+                       
+                        break;
 
-                    case 3:
-                    Console.WriteLine("You got a Snake!");
-                    board = board = board - dice;
-                    break;
+                    case 2:
+                        board = board - dice;
+                        Console.WriteLine("You got a Snake!");
+                        Console.WriteLine("Your position is : " + board);
+                        
+                        break;
 
                     default:
-                    Console.WriteLine("Error");
-                    break;
+                        Console.WriteLine("Error");
+                        break;
 
+                }
             }
 
 
