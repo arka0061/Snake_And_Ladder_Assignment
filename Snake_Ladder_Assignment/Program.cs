@@ -26,32 +26,40 @@ namespace Snake_And_Ladder_Assignment
         public void game_start()
         {
             String roll_Dice = "";
+            String option="";
 
             while (board1 <= 120 && board2 <= 120)
             {
                 if (switch_Player == 0) //Player1
                 {
-                    Console.WriteLine("Press Enter to roll the dice Player1");
+                    Console.WriteLine("Press Enter to roll the dice Player1");                   
                     roll_Dice = Console.ReadLine();
                     Random random = new Random();
                     dice = random.Next(1, 7);
                     check = random.Next(0, 3);
-                    switch (check)
+                    if (check == 0)
+                    {  option = "No_Play"; }
+                    if (check == 1)
+                    {  option = "Ladder"; }
+                    else
+                    {  option = "Snake"; }
+               
+                    switch (option)
                     {
-                        case 0:
+                        case "No_Play":
                             Console.WriteLine("You got a No Play!");
                             Console.WriteLine("Your position is : " + board1);
                             counter1++;
                             break;
 
-                        case 1:
+                        case "Ladder":
                             board1 = board1 + dice;
                             Console.WriteLine("You got a Ladder!");
                             Console.WriteLine("Your position is : " + board1);
                             counter1++;
                             break;
 
-                        case 2:
+                        case "Snake":
                             board1 = board1 - dice;
                             Console.WriteLine("You got a Snake!");
                             Console.WriteLine("Your position is : " + board1);
@@ -89,22 +97,30 @@ namespace Snake_And_Ladder_Assignment
                     Random random = new Random();
                     dice = random.Next(1, 7);
                     check = random.Next(0, 3);
-                    switch (check)
+                    dice = random.Next(1, 7);
+                    check = random.Next(0, 3);
+                    if (check == 0)
+                    { option = "No_Play"; }
+                    if (check == 1)
+                    { option = "Ladder"; }
+                    else
+                    { option = "Snake"; }
+                    switch (option)
                     {
-                        case 0:
+                        case "No_Play":
                             Console.WriteLine("You got a No Play!");
                             Console.WriteLine("Your position is : " + board2);
                             counter1++;
                             break;
 
-                        case 1:
+                        case "Ladder":
                             board2 = board2 + dice;
                             Console.WriteLine("You got a Ladder!");
                             Console.WriteLine("Your position is : " + board2);
                             counter2++;
                             break;
 
-                        case 2:
+                        case "Snake":
                             board2 = board2 - dice;
                             Console.WriteLine("You got a Snake!");
                             Console.WriteLine("Your position is : " + board2);
@@ -134,9 +150,7 @@ namespace Snake_And_Ladder_Assignment
                     {
                         switch_Player = 0;
                     }
-
                 }
-
 
             }
             if (board1 == 100)
